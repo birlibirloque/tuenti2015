@@ -1,32 +1,22 @@
 package tuenti.challenge2;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.util.HashSet;
-import java.util.Set;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 public class AlmostPrimeDetectorTest {
 
-	private AlmostPrimeDetector almostPrimeDetector;
+	final private AlmostPrimeDetector almostPrimeDetector = new AlmostPrimeDetector();
 
 	@Test public void
-	should_return_true_for_number_4 () {
-		almostPrimeDetector = new AlmostPrimeDetector(Primes.getPrimes(10));
-		assertTrue(almostPrimeDetector.isAlmostPrime(4));
+	should_return_4_almost_primes_between_1_and_10 () {
+		almostPrimeDetector.setPrimes(Primes.getPrimes(10));
+		assertEquals(4,almostPrimeDetector.numberOfAlmostPrimesBetween(1,10));
 	}
 
 	@Test public void
-	should_return_false_for_number_3 () {
-		almostPrimeDetector = new AlmostPrimeDetector(Primes.getPrimes(10));
-		assertFalse(almostPrimeDetector.isAlmostPrime(3));
-	}
-
-	@Test public void
-	should_return_false_for_number_5 () {
-		almostPrimeDetector = new AlmostPrimeDetector(Primes.getPrimes(10));
-		assertFalse(almostPrimeDetector.isAlmostPrime(3));
+	should_return_3_almost_primes_between_10_and_20 () {
+		almostPrimeDetector.setPrimes(Primes.getPrimes(20));
+		assertEquals(3,almostPrimeDetector.numberOfAlmostPrimesBetween(10,20));
 	}
 }
