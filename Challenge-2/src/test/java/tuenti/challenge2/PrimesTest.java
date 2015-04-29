@@ -12,14 +12,16 @@ public class PrimesTest {
 	@Test public void
 	should_return_a_set_with_no_integer_when_max_is_less_than_3(){
 		Set<Integer> primes = Primes.getPrimes(2);
-		assertEquals(0, primes.size());
+		assertEquals(1, primes.size());
+		assertTrue(primes.contains(2));
 	}
 
 	@Test public void
 	should_return_a_set_with_prime_2_when_max_is_3(){
 		Set<Integer> primes = Primes.getPrimes(3);
-		assertEquals(1, primes.size());
+		assertEquals(2, primes.size());
 		assertTrue(primes.contains(2));
+		assertTrue(primes.contains(3));
 	}
 
 	@Test public void

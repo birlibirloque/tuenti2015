@@ -11,7 +11,8 @@ public class AlmostPrime {
     {
       AlmostPrimeDetector almostPimeDetector = new AlmostPrimeDetector();
 
-      FileReader fr = new FileReader("src/test/resources/sample.txt");
+      FileReader fr = new FileReader("src/test/resources/submitInput.txt");
+      //FileReader fr = new FileReader("src/test/resources/sample.txt");
       FileWriter writer = new FileWriter("src/test/resources/output.txt");
       BufferedReader reader = new BufferedReader(fr);
  
@@ -23,9 +24,7 @@ public class AlmostPrime {
       {
       	min = Integer.valueOf(linea.split(" ")[0]);
       	max = Integer.valueOf(linea.split(" ")[1]);
-      	
-        almostPimeDetector.setPrimes(Primes.getPrimes(max));
-        
+      	                
         Integer numberOfAlmostPrimes = almostPimeDetector.numberOfAlmostPrimesBetween(min, max);
 
         writer.write(numberOfAlmostPrimes.toString() + "\n");
