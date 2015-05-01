@@ -2,6 +2,7 @@ package tuenti.challenge3;
 
 import static org.junit.Assert.assertEquals;
 
+import java.math.BigInteger;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -17,7 +18,7 @@ public class PrimesDetectorTest
   {
     Set<Integer> primes = Primes.getFirstPrimes(5);
     detector.init(primes);    
-    detector.countMostPopular(150D);
+    detector.countMostPopular(new BigInteger("150"));
     Integer[] popular = detector.getMostPopular();
     assertEquals((Integer)2, popular[0]);
     assertEquals((Integer)5, popular[1]);
@@ -28,7 +29,7 @@ public class PrimesDetectorTest
   {
     Set<Integer> primes = Primes.getFirstPrimes(5);
     detector.init(primes);
-    detector.countMostPopular(210D);
+    detector.countMostPopular(new BigInteger("210"));
     Integer[] popular = detector.getMostPopular();   
     assertEquals((Integer)1, popular[0]);
     assertEquals((Integer)2, popular[1]);
@@ -41,7 +42,7 @@ public class PrimesDetectorTest
   {
     Set<Integer> primes = Primes.getFirstPrimes(5);    
     detector.init(primes);
-    detector.countMostPopular(708750D);
+    detector.countMostPopular(new BigInteger("708750"));
     Integer[] popular = detector.getMostPopular();   
     assertEquals((Integer)4, popular[0]);
     assertEquals((Integer)3, popular[1]);
@@ -53,11 +54,12 @@ public class PrimesDetectorTest
   {
     Set<Integer> primes = Primes.getFirstPrimes(25);
     detector.init(primes);
-    detector.countMostPopular(40538103498493480651153838410835479173634905226439438419127626062846124183452713356194863055629541265643379109659815000056205516418464789277779504467899236242704451184542077940173615366017064843750D);
+    detector.countMostPopular(new BigInteger("40538103498493480651153838410835479173634905226439438419127626062846124183452713356194863055629541265643379109659815000056205516418464789277779504467899236242704451184542077940173615366017064843750"));
     Integer[] popular = detector.getMostPopular();   
     assertEquals((Integer)11, popular[0]);
-    assertEquals((Integer)11, popular[1]);
-    assertEquals((Integer)41, popular[2]);
-    assertEquals((Integer)71, popular[3]);
+    assertEquals((Integer)7, popular[1]);
+    assertEquals((Integer)11, popular[2]);
+    assertEquals((Integer)41, popular[3]);
+    assertEquals((Integer)71, popular[4]);
   }
 }

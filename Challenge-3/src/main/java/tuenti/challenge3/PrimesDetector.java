@@ -1,7 +1,7 @@
 package tuenti.challenge3;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -17,7 +17,7 @@ public class PrimesDetector
     for (Integer i : primes) popular.put(i, 0);
   }
   
-  public void countMostPopular(Double number)
+  public void countMostPopular(BigInteger number)
   {
     for (Integer i : popular.keySet())
     {
@@ -25,13 +25,13 @@ public class PrimesDetector
     }
   }
 
-  private void countTimes(Double number, Integer i)
+  private void countTimes(BigInteger number, Integer i)
   {
-    while (number % i == 0) 
+    while (number.mod(BigInteger.valueOf(i)) == BigInteger.ZERO) 
     {
       Integer valor = this.popular.get(i);
       this.popular.put(i, ++valor);
-      number /= i;
+      number = number.divide(BigInteger.valueOf(i));
     }    
   }
   

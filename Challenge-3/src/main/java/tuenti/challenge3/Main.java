@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
@@ -64,7 +65,7 @@ public class Main
       {
         if ((start <= lineCounter) && (end > lineCounter))
         {
-          detector.countMostPopular(Double.valueOf(line));
+          detector.countMostPopular(new BigInteger(line));
         }
         
         lineCounter++;
