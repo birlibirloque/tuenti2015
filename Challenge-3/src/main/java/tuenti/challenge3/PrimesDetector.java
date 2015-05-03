@@ -32,7 +32,7 @@ public class PrimesDetector
       Integer valor = this.popular.get(i);
       this.popular.put(i, ++valor);
       number = number.divide(BigInteger.valueOf(i));
-    }    
+    }
   }
   
   public Integer[] getMostPopular()

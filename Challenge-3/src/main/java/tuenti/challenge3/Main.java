@@ -25,10 +25,10 @@ public class Main
   {
     try 
     {
-      //FileReader fr = new FileReader("src/test/resources/submitInput.txt");
-      FileReader fr = new FileReader("src/test/resources/sample.txt");
+      FileReader fr = new FileReader("src/test/resources/submitInput.txt");
+      //FileReader fr = new FileReader("src/test/resources/sample.txt");
       FileWriter writer = new FileWriter("src/test/resources/output.txt");
-      BufferedReader reader = new BufferedReader(fr);      
+      BufferedReader reader = new BufferedReader(fr);
         
       Set<Integer> primes = Primes.getFirstPrimes(FIRST_PRIMES_NUMBER);      
             
@@ -70,6 +70,8 @@ public class Main
         
         lineCounter++;
       }
+      
+      rock.close();
     }
     catch (Exception e)
     {
@@ -82,11 +84,20 @@ public class Main
   
   private void writeOutPut(Integer[] mostPopular, FileWriter writer) throws IOException
   {
+    // No le molan que haya espacios en blanco tras el último número. Son unos sibaritas.
+    int count = 1;
     for (Integer i: mostPopular)
     {
-      writer.write(i + " ");
-      System.out.print(i + " ");
+      writer.write(i.toString());
+      //System.out.print(i);
+      if (count < mostPopular.length)
+      {
+        writer.write(" ");
+        //System.out.print(" ");
+      }
+      count++;
     }
-    System.out.println();
+    writer.write("\n");
+    //System.out.println();
   }
 }
